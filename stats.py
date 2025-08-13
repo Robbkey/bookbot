@@ -16,6 +16,7 @@ def count_characters(file_contents):
     # transforming a string of words into a list of characters
     character = list(book)
     dic = {}
+    c_dic = []
     # making it so that there is only one copy of each characte in the list
     characters = list(set(character))
 
@@ -26,6 +27,14 @@ def count_characters(file_contents):
     # filling the dictionairy with the character count
     for i in character:
         dic[i] += 1
- 
 
-    return dic
+    # creating a list of dictionarys with the char and value keywords for sorting
+    for i in characters:
+        c_dic.append({"char":i, "value":dic[i]})
+
+    return dic, c_dic
+
+# defining a functiion to get the "value" from a list of dictionarys
+def sort_on(c_dic):
+    return c_dic["value"]
+
