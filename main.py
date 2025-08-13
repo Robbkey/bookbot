@@ -1,20 +1,27 @@
-# improting the book as a string from the stats.py
+import sys
+
+# improting functions from the stats.py
 from stats import get_book_text
-# improting the word_count as an int from the stats.py
 from stats import word_count
 from stats import count_characters 
 from stats import sort_on       
 
 # defining the main function with it's calls
 def main():
-    file_path = "/home/robbkey/Desktop/BootDev/github.com/Robbkey/bookbot/books/frankenstein.txt"
+
+
+    if len(sys.argv)!=2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        file_path = sys.argv[1]
+
+    #file_path = "/home/robbkey/Desktop/BootDev/github.com/Robbkey/bookbot/books/frankenstein.txt"
     # calling the function get_book_text
     book = get_book_text(file_path)
-  
 
     # calling the function  word_count
     count = word_count(book)
-  
 
     # calling the function count_characters
     character, list_dictionairy= count_characters(book)
